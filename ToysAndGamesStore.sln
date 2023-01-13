@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToysAndGamesAPI", "ToysAndGamesAPI\ToysAndGamesAPI.csproj", "{92CFF2D4-0A5A-4500-8F87-78CFCFBF533D}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ToysAndGames", "ToysAndGames\ToysAndGames.esproj", "{FDDD4BB0-0176-4CBF-ACBF-91115A4DFFFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92CFF2D4-0A5A-4500-8F87-78CFCFBF533D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92CFF2D4-0A5A-4500-8F87-78CFCFBF533D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92CFF2D4-0A5A-4500-8F87-78CFCFBF533D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92CFF2D4-0A5A-4500-8F87-78CFCFBF533D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDDD4BB0-0176-4CBF-ACBF-91115A4DFFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDDD4BB0-0176-4CBF-ACBF-91115A4DFFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDDD4BB0-0176-4CBF-ACBF-91115A4DFFFD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FDDD4BB0-0176-4CBF-ACBF-91115A4DFFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDDD4BB0-0176-4CBF-ACBF-91115A4DFFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDDD4BB0-0176-4CBF-ACBF-91115A4DFFFD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80604575-BDEC-4A01-A5E2-FF71372520B2}
+	EndGlobalSection
+EndGlobal
