@@ -21,10 +21,11 @@ export class DialogComponent {
   onDeleteClick(): void {
 
     let response = this.productsService.deleteProduct(this.productId)
-    .subscribe(res => { });
+    .subscribe(res => {
 
-    console.log("DELETE RESPONSE: " + response);
-    this.dialogRef.close();
+      this.dialogRef.close();
+
+    });
 
   }
 

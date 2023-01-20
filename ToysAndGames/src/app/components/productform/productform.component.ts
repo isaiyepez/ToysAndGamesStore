@@ -78,8 +78,6 @@ export class ProductformComponent {
       } else{
         this.addProduct();
       }
-
-      this.gotoList();
     }
   }
 
@@ -95,6 +93,7 @@ export class ProductformComponent {
       let response = this.productsService.postProduct(this.productForm.value)
     .subscribe(res => {
       console.log('Post successful');
+      this.gotoList();
     });
 
   }
@@ -103,6 +102,7 @@ export class ProductformComponent {
    let response = this.productsService.updateProduct(this.productForm.value)
    .subscribe(res => {
     console.log('Patch successful');
+    this.gotoList();
    });
   }
 
