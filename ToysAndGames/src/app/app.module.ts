@@ -14,6 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { ProductstableComponent } from './components/productstable/productstable.component';
 import { MatTableModule } from '@angular/material/table';
@@ -25,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DialogComponent } from './pages/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     NavigationComponent,
     ProductstableComponent,
-    ProductformComponent
+    ProductformComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule,
-    LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
+    LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatDialogModule,
     MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatSelectModule, MatRadioModule, MatCardModule, ReactiveFormsModule
   ],
   providers: [],

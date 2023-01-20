@@ -7,16 +7,16 @@
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" floatLabel="always">
-            <input matInput placeholder="Product ID 11111" readonly="true" />
+            <input matInput placeholder="Product ID" formControlName="Id" readonly="true"/>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Product name" formControlName="name" />
+            <input matInput placeholder="Product name" formControlName="Name" />
             <mat-error
-              *ngIf="productForm.controls['name'].hasError('required')"
+              *ngIf="productForm.controls['Name'].hasError('required')"
             >
               Product name is <strong>required</strong>
             </mat-error>
@@ -29,10 +29,10 @@
             <textarea
               matInput
               placeholder="Product description"
-              formControlName="description"
+              formControlName="Description"
             ></textarea>
             <mat-error
-              *ngIf="productForm.controls['description'].hasError('required')"
+              *ngIf="productForm.controls['Description'].hasError('required')"
             >
               Description is <strong>required</strong>
             </mat-error>
@@ -46,11 +46,11 @@
               matInput
               placeholder="Age Restriction"
               type="number"
-              formControlName="ageRestriction"
+              formControlName="AgeRestriction"
             />
             <mat-error
               *ngIf="
-                productForm.controls['ageRestriction'].hasError('required')
+                productForm.controls['AgeRestriction'].hasError('required')
               "
             >
               Age Restriction is <strong>required</strong>
@@ -61,9 +61,9 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Company" formControlName="company" />
+            <input matInput placeholder="Company" formControlName="Company" />
             <mat-error
-              *ngIf="productForm.controls['company'].hasError('required')"
+              *ngIf="productForm.controls['Company'].hasError('required')"
             >
               Company is <strong>required</strong>
             </mat-error>
@@ -79,12 +79,12 @@
               type="number"
               class="example-right-align"
               placeholder="0"
-              formControlName="price"
+              formControlName="Price"
             />
             <span matTextPrefix>$&nbsp;</span>
             <span matTextSuffix>.00</span>
             <mat-error
-              *ngIf="productForm.controls['price'].hasError('required')"
+              *ngIf="productForm.controls['Price'].hasError('required')"
             >
               Price is <strong>required</strong>
             </mat-error>
