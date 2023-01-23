@@ -26,3 +26,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+//To add test with default web application factory
+public partial class Program { }

@@ -64,7 +64,6 @@ export class ProductstableComponent implements OnInit {
 
   deleteProduct(productId: any) {
     this.openDialog(productId);
-    //this.router.navigate(['/productform', { productId }]);
 
   }
 
