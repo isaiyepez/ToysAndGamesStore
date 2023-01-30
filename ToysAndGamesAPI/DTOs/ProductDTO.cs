@@ -1,6 +1,8 @@
-﻿namespace ToysAndGamesAPI.Entities
+﻿using ToysAndGamesAPI.Entities;
+
+namespace ToysAndGamesAPI.DTOs
 {
-    public class Product
+    public class ProductDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -8,7 +10,8 @@
         public int? AgeRestriction { get; set; }
         public string Company { get; set; }
         public decimal Price { get; set; }
-        public ProductImage ProductImage { get; set; }
-
+        public int ProductImageId { get; set; }
+        public string ImageName { get; set; }
+        public byte[] ImageFile { get; set; }        
     }
 }

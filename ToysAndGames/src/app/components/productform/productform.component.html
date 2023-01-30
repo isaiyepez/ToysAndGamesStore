@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" floatLabel="always">
-            <input matInput placeholder="Product ID" formControlName="Id" readonly="true"/>
+            <input matInput placeholder="Product ID" formControlName="Id" readonly="true" />
           </mat-form-field>
         </div>
       </div>
@@ -15,9 +15,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Product name" formControlName="Name" />
-            <mat-error
-              *ngIf="productForm.controls['Name'].hasError('required')"
-            >
+            <mat-error *ngIf="productForm.controls['Name'].hasError('required')">
               Product name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -26,14 +24,8 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea
-              matInput
-              placeholder="Product description"
-              formControlName="Description"
-            ></textarea>
-            <mat-error
-              *ngIf="productForm.controls['Description'].hasError('required')"
-            >
+            <textarea matInput placeholder="Product description" formControlName="Description"></textarea>
+            <mat-error *ngIf="productForm.controls['Description'].hasError('required')">
               Description is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -42,17 +34,10 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input
-              matInput
-              placeholder="Age Restriction"
-              type="number"
-              formControlName="AgeRestriction"
-            />
-            <mat-error
-              *ngIf="
+            <input matInput placeholder="Age Restriction" type="number" formControlName="AgeRestriction" />
+            <mat-error *ngIf="
                 productForm.controls['AgeRestriction'].hasError('required')
-              "
-            >
+              ">
               Age Restriction is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -62,9 +47,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Company" formControlName="Company" />
-            <mat-error
-              *ngIf="productForm.controls['Company'].hasError('required')"
-            >
+            <mat-error *ngIf="productForm.controls['Company'].hasError('required')">
               Company is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -74,22 +57,29 @@
         <div class="col">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Price</mat-label>
-            <input
-              matInput
-              type="number"
-              class="example-right-align"
-              placeholder="0"
-              formControlName="Price"
-            />
+            <input matInput type="number" class="example-right-align" placeholder="0" formControlName="Price" />
             <span matTextPrefix>$&nbsp;</span>
-            <mat-error
-              *ngIf="productForm.controls['Price'].hasError('required')"
-            >
+            <mat-error *ngIf="productForm.controls['Price'].hasError('required')">
               Price is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
       </div>
+
+
+      <div class="row">
+        <div class="col">
+
+          <label>Image</label>
+          <img [src]="imageContent" *ngIf="imageContent" style="height: 15rem; width:15rem">
+
+        </div>
+      </div>
+
+      <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+      <input hidden (change)="onImageSelected($event)" #fileInput type="file">
+      <span class="file-name">{{imageSrc?.name}}</span>
+      
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Submit</button>

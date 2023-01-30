@@ -1,16 +1,18 @@
-﻿namespace ToysAndGamesAPI.Entities
+﻿using ToysAndGamesAPI.DTOs;
+
+namespace ToysAndGamesAPI.Entities
 {
     public interface IProductRepository
     {
-        Task<List<Product>> AllProducts();
+        Task<List<ProductDTO>> AllProducts();
 
-        Task<Product> GetProduct(int Id);
+        Task<ProductDTO> GetProduct(int Id);
 
         Task<bool> SaveAll();
 
-        void AddProduct(Product product);
+        void AddProduct(ProductDTO product);
 
-        void UpdateProduct(Product product);
+        void UpdateProduct(ProductDTO product);
 
         void DeleteProduct(int Id);
     }

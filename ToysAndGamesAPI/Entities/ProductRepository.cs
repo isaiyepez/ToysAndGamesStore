@@ -1,27 +1,36 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using ToysAndGamesAPI.Data;
+using ToysAndGamesAPI.DTOs;
 
 namespace ToysAndGamesAPI.Entities
 {
     public class ProductRepository : IProductRepository
     {
         private readonly DataContext _dataContext;
+        private readonly IMapper _mapper;
 
-
-        public ProductRepository(DataContext dataContext)
+        public ProductRepository(DataContext dataContext, IMapper mapper)
         {
             _dataContext = dataContext;
+            _mapper = mapper;
         }
 
-        Task<List<Product>> IProductRepository.AllProducts()
+        public async Task<List<ProductDTO>> AllProducts()
         {
-          return _dataContext.Products.ToListAsync();
+          return await _dataContext.Products
+                .ProjectTo<ProductDTO>(_mapper.ConfigurationProvider)
+                .ToListAsync();
 
         }
 
-        public void AddProduct(Product product)
+        public void AddProduct(ProductDTO productDto)
         {
-            _dataContext.Products.Add(product);           
+           
+                Product product = _mapper.Map<Product>(productDto);
+                _dataContext.Products.Add(product);           
+
         }
 
         public void DeleteProduct(int Id)
@@ -30,15 +39,18 @@ namespace ToysAndGamesAPI.Entities
             
         }
 
-        public Task<Product> GetProduct(int Id)
+        public async Task<ProductDTO> GetProduct (int Id)
         {
-            return _dataContext.Products.FirstOrDefaultAsync(prod => prod.Id == Id);
+            return await _dataContext.Products                
+                .Where(prod => prod.Id == Id)
+                .ProjectTo<ProductDTO>(_mapper.ConfigurationProvider)
+                .SingleOrDefaultAsync();
         }
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(ProductDTO productDto)
         {
-            _dataContext.Products.Update(product);
-            
+            Product product = _mapper.Map<Product>(productDto);
+            _dataContext.Products.Update(product);            
         }
 
         public async Task<bool> SaveAll()

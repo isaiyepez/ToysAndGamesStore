@@ -14,6 +14,8 @@ export class ProductformComponent {
   @Input()
   product?: Product;
   productId?: number;
+  imageSrc: any;
+  imageContent: string = '';
 
   productForm = this.fb.group({
     Id: [''],
@@ -22,6 +24,9 @@ export class ProductformComponent {
     AgeRestriction: [''],
     Company: ['', Validators.required],
     Price: [0.0, Validators.required],
+    ProductImageId: [0],
+    ImageFile: ['', Validators.required],
+    ImageName: ['', Validators.required]
   });
 
 
@@ -45,14 +50,10 @@ export class ProductformComponent {
             if(this.product){
               this.setFormValues();
             }
-            //this.productForm.patchValue(this.product);
+
           },
           error: (e) => console.error(e)
         });
-        // (data: any) => {
-        //   this.product = data;
-        //   //
-        // }
 
     }
   }
@@ -64,13 +65,18 @@ export class ProductformComponent {
       Description: this.product!['description'],
       AgeRestriction: this.product!['ageRestriction'] ? this.product!['ageRestriction']!.toString() : null,
       Company: this.product!['company'],
-      Price: this.product!['price']!
+      Price: this.product!['price']!,
+      ProductImageId: this.product?.productImageId,
+      ImageFile: this.product!['imageFile'],
+      ImageName: this.product!['imageName']
+
     });
 
 
   }
 
   onSubmit(): void {
+
     if(this.productForm.valid){
 
       if(this.productId){
@@ -81,13 +87,29 @@ export class ProductformComponent {
     }
   }
 
+  onImageSelected(event: any){
+    if(event.target.files && event.target.files.length) {
+
+      const reader = new FileReader();
+
+      const [file] = event!.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.productForm.patchValue({
+          ImageFile: reader.result as string,
+          ImageName: file.name
+        });
+        this.imageSrc = file;
+        this.imageContent = reader.result as string;
+      }
+
+    }
+
+  }
+
   addProduct() {
 
-    // this.productsService.postProduct(this.productForm.value).subscribe(
-    //   (res: any) => {
-    //     console.log('Post successful');
-
-    //   });
     this.productForm.controls['Id'].disable();
 
       let response = this.productsService.postProduct(this.productForm.value)
@@ -99,6 +121,7 @@ export class ProductformComponent {
   }
 
   updateProduct() {
+
    let response = this.productsService.updateProduct(this.productForm.value)
    .subscribe(res => {
     console.log('Patch successful');
